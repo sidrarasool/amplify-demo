@@ -1,13 +1,5 @@
 {
   "permissions": {
-    "auth": {
-      "amplifydemosidrab7f92b99": [
-        "create",
-        "read",
-        "update",
-        "delete"
-      ]
-    },
     "api": {
       "amplifydemosidra": [
         "Query",

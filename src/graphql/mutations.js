@@ -49,9 +49,8 @@ export const createUserEvents = /* GraphQL */ `
     $condition: ModelUserEventsConditionInput
   ) {
     createUserEvents(input: $input, condition: $condition) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }
@@ -63,9 +62,8 @@ export const updateUserEvents = /* GraphQL */ `
     $condition: ModelUserEventsConditionInput
   ) {
     updateUserEvents(input: $input, condition: $condition) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }
@@ -77,9 +75,8 @@ export const deleteUserEvents = /* GraphQL */ `
     $condition: ModelUserEventsConditionInput
   ) {
     deleteUserEvents(input: $input, condition: $condition) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }

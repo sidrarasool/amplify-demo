@@ -39,9 +39,8 @@ export const onCreateUserEvents = /* GraphQL */ `
     $filter: ModelSubscriptionUserEventsFilterInput
   ) {
     onCreateUserEvents(filter: $filter) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }
@@ -52,9 +51,8 @@ export const onUpdateUserEvents = /* GraphQL */ `
     $filter: ModelSubscriptionUserEventsFilterInput
   ) {
     onUpdateUserEvents(filter: $filter) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }
@@ -65,9 +63,8 @@ export const onDeleteUserEvents = /* GraphQL */ `
     $filter: ModelSubscriptionUserEventsFilterInput
   ) {
     onDeleteUserEvents(filter: $filter) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }

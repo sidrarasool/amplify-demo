@@ -42,7 +42,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifydemosidra-dev-101420-deployment/amplify-cfn-templates/auth/amplifydemosidrab7f92b99-cloudformation-template.json",
         "logicalId": "authamplifydemosidrab7f92b99"
       },
-      "lastPushTimeStamp": "2022-10-27T12:52:36.582Z",
+      "lastPushTimeStamp": "2022-10-28T10:58:48.932Z",
       "output": {
         "UserPoolId": "us-east-1_mgflAcYwq",
         "AppClientIDWeb": "76afa3mni22c1g87r9v5vgjv7s",
@@ -93,8 +93,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifydemosidra-dev-101420-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiamplifydemosidra"
       },
-      "lastPushTimeStamp": "2022-10-27T12:52:36.587Z",
-      "lastPushDirHash": "kQYXSf0snMizatOqdpMQwamaoVw="
+      "lastPushTimeStamp": "2022-10-28T10:58:48.936Z",
+      "lastPushDirHash": "dOJdOhOVPv5QGR07QqDdSMSt4cc="
     }
   },
   "function": {
@@ -108,46 +108,32 @@
           "resourceName": "amplifydemosidra",
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "amplifydemosidrab7f92b99",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "api",
-          "resourceName": "amplifydemosidra",
-          "attributes": [
-            "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
           ]
         }
       ],
-      "lastBuildTimeStamp": "2022-10-27T12:50:46.205Z",
+      "lastBuildTimeStamp": "2022-10-28T10:57:01.147Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2022-10-27T12:50:46.250Z",
-      "distZipFilename": "amplifydemosidraf4dd485e-544a555950354b396169-build.zip",
+      "lastPackageTimeStamp": "2022-10-28T10:57:01.176Z",
+      "distZipFilename": "amplifydemosidraf4dd485e-73547854525a2b434d4e-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-amplifydemosidra-dev-101420-deployment",
-        "s3Key": "amplify-builds/amplifydemosidraf4dd485e-544a555950354b396169-build.zip"
+        "s3Key": "amplify-builds/amplifydemosidraf4dd485e-73547854525a2b434d4e-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifydemosidra-dev-101420-deployment/amplify-cfn-templates/function/amplifydemosidraf4dd485e-cloudformation-template.json",
         "logicalId": "functionamplifydemosidraf4dd485e"
       },
-      "lastPushTimeStamp": "2022-10-27T12:52:37.566Z",
+      "lastPushTimeStamp": "2022-10-28T10:58:49.990Z",
       "output": {
         "Region": "us-east-1",
         "Arn": "arn:aws:lambda:us-east-1:072748911387:function:amplifydemosidraf4dd485e-dev",
         "Name": "amplifydemosidraf4dd485e-dev",
         "LambdaExecutionRole": "amplifydemosidraLambdaRole2967e2a3-dev"
       },
-      "lastPushDirHash": "7Ky7r+Vk2fPLJEPEtX7R96UUbX0="
+      "lastPushDirHash": "LlsywJFGdPOTnq6UnD0M0PTYV10=",
+      "lastDevBuildTimeStamp": "2022-10-28T10:56:14.080Z"
     }
   }
 }

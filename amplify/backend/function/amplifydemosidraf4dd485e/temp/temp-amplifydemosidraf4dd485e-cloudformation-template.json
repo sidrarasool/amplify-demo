@@ -92,9 +92,7 @@
               "Ref": "apiamplifydemosidraGraphQLAPIKeyOutput"
             },
             "API_AMPLIFYDEMOSIDRA_TASKSTABLE_NAME": {
-              "Fn::ImportValue": {
-                "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:Name"
-              }
+              "Fn::Sub": "TemporaryPlaceholderValue"
             },
             "API_AMPLIFYDEMOSIDRA_TASKSTABLE_ARN": {
               "Fn::Join": [
@@ -110,17 +108,13 @@
                   },
                   ":table/",
                   {
-                    "Fn::ImportValue": {
-                      "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:Name"
-                    }
+                    "Fn::Sub": "TemporaryPlaceholderValue"
                   }
                 ]
               ]
             },
             "API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME": {
-              "Fn::ImportValue": {
-                "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:Name"
-              }
+              "Fn::Sub": "TemporaryPlaceholderValue"
             },
             "API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_ARN": {
               "Fn::Join": [
@@ -136,9 +130,7 @@
                   },
                   ":table/",
                   {
-                    "Fn::ImportValue": {
-                      "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:Name"
-                    }
+                    "Fn::Sub": "TemporaryPlaceholderValue"
                   }
                 ]
               ]
@@ -332,9 +324,7 @@
                       },
                       ":table/",
                       {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:Name"
-                        }
+                        "Fn::Sub": "TemporaryPlaceholderValue"
                       }
                     ]
                   ]
@@ -353,9 +343,7 @@
                       },
                       ":table/",
                       {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:Name"
-                        }
+                        "Fn::Sub": "TemporaryPlaceholderValue"
                       },
                       "/index/*"
                     ]
@@ -394,9 +382,7 @@
                       },
                       ":table/",
                       {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:Name"
-                        }
+                        "Fn::Sub": "TemporaryPlaceholderValue"
                       }
                     ]
                   ]
@@ -415,9 +401,7 @@
                       },
                       ":table/",
                       {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:Name"
-                        }
+                        "Fn::Sub": "TemporaryPlaceholderValue"
                       },
                       "/index/*"
                     ]
@@ -453,9 +437,7 @@
                 "dynamodb:ListStreams"
               ],
               "Resource": {
-                "Fn::ImportValue": {
-                  "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:StreamArn"
-                }
+                "Fn::Sub": "TemporaryPlaceholderValue"
               }
             }
           ]
@@ -472,9 +454,7 @@
         "BatchSize": 100,
         "Enabled": true,
         "EventSourceArn": {
-          "Fn::ImportValue": {
-            "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:TasksTable:StreamArn"
-          }
+          "Fn::Sub": "TemporaryPlaceholderValue"
         },
         "FunctionName": {
           "Fn::GetAtt": [
@@ -509,9 +489,7 @@
                 "dynamodb:ListStreams"
               ],
               "Resource": {
-                "Fn::ImportValue": {
-                  "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:StreamArn"
-                }
+                "Fn::Sub": "TemporaryPlaceholderValue"
               }
             }
           ]
@@ -528,9 +506,7 @@
         "BatchSize": 100,
         "Enabled": true,
         "EventSourceArn": {
-          "Fn::ImportValue": {
-            "Fn::Sub": "${apiamplifydemosidraGraphQLAPIIdOutput}:GetAtt:UserEventsTable:StreamArn"
-          }
+          "Fn::Sub": "TemporaryPlaceholderValue"
         },
         "FunctionName": {
           "Fn::GetAtt": [

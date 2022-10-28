@@ -9,6 +9,6 @@ type Tasks @model {
   description: String
 }
 type UserEvents @model {
-  userId: String!
+  id: ID!
   count: Int
 }

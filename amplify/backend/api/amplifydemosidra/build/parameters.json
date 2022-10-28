@@ -9,5 +9,5 @@
         ]
     },
     "S3DeploymentBucket": "amplify-amplifydemosidra-dev-101420-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/58ff500e968f0041ce6598cb95fa2b8b0a8d3caa"
+    "S3DeploymentRootKey": "amplify-appsync-files/b5866f4d175c14eafee43cef5c882c66656a85a1"
 }

@@ -221,7 +221,7 @@
             ]
           },
           "S3DeploymentBucket": "amplify-amplifydemosidra-dev-101420-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/58ff500e968f0041ce6598cb95fa2b8b0a8d3caa",
+          "S3DeploymentRootKey": "amplify-appsync-files/b5866f4d175c14eafee43cef5c882c66656a85a1",
           "env": "dev"
         }
       }
@@ -232,7 +232,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-amplifydemosidra-dev-101420-deployment/amplify-cfn-templates/function/amplifydemosidraf4dd485e-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-amplifydemosidra-dev-101420-deployment",
-          "s3Key": "amplify-builds/amplifydemosidraf4dd485e-544a555950354b396169-build.zip",
+          "s3Key": "amplify-builds/amplifydemosidraf4dd485e-73547854525a2b434d4e-build.zip",
           "apiamplifydemosidraGraphQLAPIIdOutput": {
             "Fn::GetAtt": [
               "apiamplifydemosidra",
@@ -243,12 +243,6 @@
             "Fn::GetAtt": [
               "apiamplifydemosidra",
               "Outputs.GraphQLAPIEndpointOutput"
-            ]
-          },
-          "authamplifydemosidrab7f92b99UserPoolId": {
-            "Fn::GetAtt": [
-              "authamplifydemosidrab7f92b99",
-              "Outputs.UserPoolId"
             ]
           },
           "apiamplifydemosidraGraphQLAPIKeyOutput": {

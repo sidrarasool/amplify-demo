@@ -33,9 +33,8 @@ export const listTasks = /* GraphQL */ `
 export const getUserEvents = /* GraphQL */ `
   query GetUserEvents($id: ID!) {
     getUserEvents(id: $id) {
-      userId
-      count
       id
+      count
       createdAt
       updatedAt
     }
@@ -49,9 +48,8 @@ export const listUserEvents = /* GraphQL */ `
   ) {
     listUserEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        userId
-        count
         id
+        count
         createdAt
         updatedAt
       }

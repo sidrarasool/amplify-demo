@@ -1,82 +1,66 @@
 /* Amplify Params - DO NOT EDIT
-    API_AMPLIFYDEMOSIDRA_GRAPHQLAPIENDPOINTOUTPUT
-    API_AMPLIFYDEMOSIDRA_GRAPHQLAPIIDOUTPUT
-    API_AMPLIFYDEMOSIDRA_GRAPHQLAPIKEYOUTPUT
-    API_AMPLIFYDEMOSIDRA_TASKSTABLE_ARN
-    API_AMPLIFYDEMOSIDRA_TASKSTABLE_NAME
-    API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_ARN
-    API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME
-    AUTH_AMPLIFYDEMOSIDRAB7F92B99_USERPOOLID
-    ENV
-    REGION
-Amplify Params - DO NOT EDIT */
-/**
- * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
- */
-const AWS = require("aws-sdk");
-const dynamo = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
-exports.handler = async (event, context) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
-  event.Records.forEach((record) => {
-    console.log(record);
-    console.log(record.eventName);
-    console.log("DynamoDB Record: %j", record.dynamodb);
-  });
+	API_AMPLIFYDEMOSIDRA_GRAPHQLAPIENDPOINTOUTPUT
+	API_AMPLIFYDEMOSIDRA_GRAPHQLAPIIDOUTPUT
+	API_AMPLIFYDEMOSIDRA_GRAPHQLAPIKEYOUTPUT
+	API_AMPLIFYDEMOSIDRA_TASKSTABLE_ARN
+	API_AMPLIFYDEMOSIDRA_TASKSTABLE_NAME
+	API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_ARN
+	API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT */ console.log("Loading function");
+var AWS = require("aws-sdk");
+const dynamo = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = async (event, context, callback) => {
+  //   console.log(JSON.stringify(event, null, "  "));
+  //   console.log("userid", event.Records[0].dynamodb.OldImage.userId.S);
+  const userId =
+    event.Records[0].eventName === "INSERT"
+      ? event.Records[0].dynamodb.NewImage.userId.S
+      : event.Records[0].dynamodb.OldImage.userId.S;
   try {
-    var tableName = "UserEvents";
-    dynamo.put(
-      {
-        TableName: tableName,
-        Item: {
-          userId: "38400f17-b960-49eb-9fd5-577310707f9e",
-          count: 1,
+    const getUser = await dynamo
+      .get({
+        TableName: process.env.API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME,
+        Key: {
+          id: userId,
         },
-      },
-      function (err, data) {
-        if (err) {
-          console.log("Error putting item into dynamodb failed: " + err);
-          context.done("error");
-        } else {
-          console.log("great success: " + JSON.stringify(data, null, "  "));
-          context.done("Done");
-        }
+      })
+      .promise();
+    if (Object.keys(getUser).length === 0) {
+      const params = {
+        TableName: process.env.API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME,
+        Item: {
+          id: userId,
+          count: "1",
+        },
+      };
+      const data = await dynamo.put(params).promise();
+    } else {
+      let params;
+      if (event.Records[0].eventName === "INSERT") {
+        params = {
+          TableName: process.env.API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME,
+          Item: {
+            id: userId,
+            count: parseInt(getUser.Item.count) + 1,
+          },
+        };
+      } else if (event.Records[0].eventName === "REMOVE") {
+        params = {
+          TableName: process.env.API_AMPLIFYDEMOSIDRA_USEREVENTSTABLE_NAME,
+          Item: {
+            id: userId,
+            count: parseInt(getUser.Item.count) - 1,
+          },
+        };
       }
-    );
-    var response = {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Data entered successfully",
-      }),
-    };
-  } catch (err) {
-    console.log(err);
-    return err;
+      const data = await dynamo.put(params).promise();
+      console.log("Succesful Update");
+      console.log("data", data);
+    }
+  } catch (e) {
+    console.log("error", e);
   }
-  // return response;
-  return Promise.resolve("Successfully processed DynamoDB record");
 };
-//   let body;
-//   let statusCode = 200;
-//   const headers = {
-//     "Content-Type": "application/json",
-//   };
-//   try {
-//     switch (event.eventName) {
-//       case "INSERT":
-//       case "REMOVE":
-//       default:
-//         throw new Error(`Unsupported route: "${event.routeKey}"`);
-//     }
-//   } catch (err) {
-//     statusCode = 400;
-//     body = err.message;
-//   } finally {
-//     body = JSON.stringify(body);
-//   }
-//   console.log(`EVENT: ${JSON.stringify(event)}`);
-//   event.Records.forEach((record) => {
-//     console.log(record);
-//     console.log(record.eventName);
-//     console.log("DynamoDB Record: %j", record.dynamodb);
-//   });
-//   return Promise.resolve("Successfully processed DynamoDB record");

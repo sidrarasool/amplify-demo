@@ -1,5 +1,43 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "Records": [
+    {
+      "eventID": "9a26293a03e182e01fdc0979c43a7dd3",
+      "eventName": "REMOVE",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-east-1",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1666875325,
+        "Keys": {
+          "id": {
+            "S": "37abba11-2674-4c09-922c-259991cb026f"
+          }
+        },
+        "OldImage": {
+          "createdAt": {
+            "S": "2022-10-27T12:41:37.327Z"
+          },
+          "__typename": {
+            "S": "Tasks"
+          },
+          "description": {
+            "S": "how could ouykjlj"
+          },
+          "id": {
+            "S": "37abba11-2674-4c09-922c-259991cb026f"
+          },
+          "userId": {
+            "S": "38400f17-b960-49eb-9fd5-577310707f9e"
+          },
+          "updatedAt": {
+            "S": "2022-10-27T12:41:37.327Z"
+          }
+        },
+        "SequenceNumber": "5511800000000083855849052",
+        "SizeBytes": 227,
+        "StreamViewType": "NEW_AND_OLD_IMAGES"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:us-east-1:072748911387:table/Tasks-b2px4jb555hhxjgno7qxap5kh4-dev/stream/2022-10-26T05:40:19.075"
+    }
+  ]
 }

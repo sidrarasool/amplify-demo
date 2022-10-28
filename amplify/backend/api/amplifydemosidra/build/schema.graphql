@@ -8,9 +8,8 @@ type Tasks {
 }
 
 type UserEvents {
-  userId: String!
-  count: Int
   id: ID!
+  count: Int
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -242,7 +241,7 @@ type ModelUserEventsConnection {
 }
 
 input ModelUserEventsFilterInput {
-  userId: ModelStringInput
+  id: ModelIDInput
   count: ModelIntInput
   and: [ModelUserEventsFilterInput]
   or: [ModelUserEventsFilterInput]
@@ -250,7 +249,6 @@ input ModelUserEventsFilterInput {
 }
 
 input ModelUserEventsConditionInput {
-  userId: ModelStringInput
   count: ModelIntInput
   and: [ModelUserEventsConditionInput]
   or: [ModelUserEventsConditionInput]
@@ -258,15 +256,13 @@ input ModelUserEventsConditionInput {
 }
 
 input CreateUserEventsInput {
-  userId: String!
-  count: Int
   id: ID
+  count: Int
 }
 
 input UpdateUserEventsInput {
-  userId: String
-  count: Int
   id: ID!
+  count: Int
 }
 
 input DeleteUserEventsInput {
@@ -274,7 +270,7 @@ input DeleteUserEventsInput {
 }
 
 input ModelSubscriptionUserEventsFilterInput {
-  userId: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
   count: ModelSubscriptionIntInput
   and: [ModelSubscriptionUserEventsFilterInput]
   or: [ModelSubscriptionUserEventsFilterInput]
