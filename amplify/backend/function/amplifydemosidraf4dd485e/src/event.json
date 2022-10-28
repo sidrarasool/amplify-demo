@@ -1,0 +1,43 @@
+{
+  "Records": [
+    {
+      "eventID": "e8ceffe7fe3712c0d84832e64c6e577c",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-east-1",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1666875358,
+        "Keys": {
+          "id": {
+            "S": "88f463e2-6834-4377-98b8-d9b2cd12bfdc"
+          }
+        },
+        "NewImage": {
+          "createdAt": {
+            "S": "2022-10-27T12:55:57.951Z"
+          },
+          "__typename": {
+            "S": "Tasks"
+          },
+          "description": {
+            "S": "whatttt"
+          },
+          "id": {
+            "S": "88f463e2-6834-4377-98b8-d9b2cd12bfdc"
+          },
+          "userId": {
+            "S": "38400f17-b960-49eb-9fd5-577310707f9e"
+          },
+          "updatedAt": {
+            "S": "2022-10-27T12:55:57.951Z"
+          }
+        },
+        "SequenceNumber": "6118000000000097562741870",
+        "SizeBytes": 217,
+        "StreamViewType": "NEW_AND_OLD_IMAGES"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:us-east-1:072748911387:table/Tasks-b2px4jb555hhxjgno7qxap5kh4-dev/stream/2022-10-26T05:40:19.075"
+    }
+  ]
+}

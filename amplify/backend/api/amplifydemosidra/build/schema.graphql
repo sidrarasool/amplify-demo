@@ -1,0 +1,282 @@
+
+type Tasks {
+  id: ID!
+  userId: String!
+  description: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type UserEvents {
+  userId: String!
+  count: Int
+  id: ID!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelTasksConnection {
+  items: [Tasks]!
+  nextToken: String
+}
+
+input ModelTasksFilterInput {
+  id: ModelIDInput
+  userId: ModelStringInput
+  description: ModelStringInput
+  and: [ModelTasksFilterInput]
+  or: [ModelTasksFilterInput]
+  not: ModelTasksFilterInput
+}
+
+type Query {
+  getTasks(id: ID!): Tasks
+  listTasks(filter: ModelTasksFilterInput, limit: Int, nextToken: String): ModelTasksConnection
+  getUserEvents(id: ID!): UserEvents
+  listUserEvents(filter: ModelUserEventsFilterInput, limit: Int, nextToken: String): ModelUserEventsConnection
+}
+
+input ModelTasksConditionInput {
+  userId: ModelStringInput
+  description: ModelStringInput
+  and: [ModelTasksConditionInput]
+  or: [ModelTasksConditionInput]
+  not: ModelTasksConditionInput
+}
+
+input CreateTasksInput {
+  id: ID
+  userId: String!
+  description: String
+}
+
+input UpdateTasksInput {
+  id: ID!
+  userId: String
+  description: String
+}
+
+input DeleteTasksInput {
+  id: ID!
+}
+
+type Mutation {
+  createTasks(input: CreateTasksInput!, condition: ModelTasksConditionInput): Tasks
+  updateTasks(input: UpdateTasksInput!, condition: ModelTasksConditionInput): Tasks
+  deleteTasks(input: DeleteTasksInput!, condition: ModelTasksConditionInput): Tasks
+  createUserEvents(input: CreateUserEventsInput!, condition: ModelUserEventsConditionInput): UserEvents
+  updateUserEvents(input: UpdateUserEventsInput!, condition: ModelUserEventsConditionInput): UserEvents
+  deleteUserEvents(input: DeleteUserEventsInput!, condition: ModelUserEventsConditionInput): UserEvents
+}
+
+input ModelSubscriptionTasksFilterInput {
+  id: ModelSubscriptionIDInput
+  userId: ModelSubscriptionStringInput
+  description: ModelSubscriptionStringInput
+  and: [ModelSubscriptionTasksFilterInput]
+  or: [ModelSubscriptionTasksFilterInput]
+}
+
+type Subscription {
+  onCreateTasks(filter: ModelSubscriptionTasksFilterInput): Tasks @aws_subscribe(mutations: ["createTasks"])
+  onUpdateTasks(filter: ModelSubscriptionTasksFilterInput): Tasks @aws_subscribe(mutations: ["updateTasks"])
+  onDeleteTasks(filter: ModelSubscriptionTasksFilterInput): Tasks @aws_subscribe(mutations: ["deleteTasks"])
+  onCreateUserEvents(filter: ModelSubscriptionUserEventsFilterInput): UserEvents @aws_subscribe(mutations: ["createUserEvents"])
+  onUpdateUserEvents(filter: ModelSubscriptionUserEventsFilterInput): UserEvents @aws_subscribe(mutations: ["updateUserEvents"])
+  onDeleteUserEvents(filter: ModelSubscriptionUserEventsFilterInput): UserEvents @aws_subscribe(mutations: ["deleteUserEvents"])
+}
+
+type ModelUserEventsConnection {
+  items: [UserEvents]!
+  nextToken: String
+}
+
+input ModelUserEventsFilterInput {
+  userId: ModelStringInput
+  count: ModelIntInput
+  and: [ModelUserEventsFilterInput]
+  or: [ModelUserEventsFilterInput]
+  not: ModelUserEventsFilterInput
+}
+
+input ModelUserEventsConditionInput {
+  userId: ModelStringInput
+  count: ModelIntInput
+  and: [ModelUserEventsConditionInput]
+  or: [ModelUserEventsConditionInput]
+  not: ModelUserEventsConditionInput
+}
+
+input CreateUserEventsInput {
+  userId: String!
+  count: Int
+  id: ID
+}
+
+input UpdateUserEventsInput {
+  userId: String
+  count: Int
+  id: ID!
+}
+
+input DeleteUserEventsInput {
+  id: ID!
+}
+
+input ModelSubscriptionUserEventsFilterInput {
+  userId: ModelSubscriptionStringInput
+  count: ModelSubscriptionIntInput
+  and: [ModelSubscriptionUserEventsFilterInput]
+  or: [ModelSubscriptionUserEventsFilterInput]
+}
+
